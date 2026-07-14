@@ -1,4 +1,4 @@
-# QFO Quant Platform
+# QFO量化回测平台
 
 **版本：QFO量化回测平台 1.0**
 
