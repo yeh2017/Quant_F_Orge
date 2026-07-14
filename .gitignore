@@ -1,0 +1,47 @@
+# ── 敏感数据 ──
+backend/.env
+backend/.notify_config.json
+backend/.news_auto_config.json
+backend/quant_data.db
+backend/quant_data.db-wal
+backend/quant_data.db-shm
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+backend/.venv/
+*.egg-info/
+
+# ── Node.js ──
+frontend/node_modules/
+frontend/dist/
+
+# ── 运行时产物 ──
+backend/cache_data/
+backend/logs/
+*.log
+
+# ── IDE / 工具 ──
+.idea/
+.vscode/
+.gemini/
+.agents/
+pyrefly.toml
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── 临时产物 ──
+backend/_*.py
+backend/_*.txt
+backend/factor_fast_test.txt
+backend/tests/e2e_result.txt
+desktop_quant_ux.html
+p2_*.md
+platform_comparison.md
+
+# ── 其他项目（不属于本仓库） ──
+PycharmP3/
+daily_stock_analysis-main/

@@ -1,0 +1,31 @@
+{
+    "name": "backtrader-platform",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently -n backend,frontend -c blue,green \"powershell -Command cd ../backend; .venv/Scripts/python.exe main.py\" \"vite\"",
+        "dev:frontend": "vite",
+        "dev:backend": "cd ../backend && .venv\\Scripts\\python.exe main.py",
+        "build": "vite build",
+        "preview": "vite preview",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "dependencies": {
+        "lightweight-charts": "^5.1.0",
+        "lucide-react": "^0.294.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "recharts": "^3.7.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "autoprefixer": "^10.4.16",
+        "concurrently": "^9.2.1",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.3.6",
+        "vite": "^5.0.8",
+        "vitest": "^4.1.8"
+    }
+}

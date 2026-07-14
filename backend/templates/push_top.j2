@@ -1,0 +1,13 @@
+{# 新闻精选推送模板 #}
+{%- set bull = items|selectattr('label', 'equalto', '利好')|list|length -%}
+{%- set bear = items|selectattr('label', 'equalto', '利空')|list|length -%}
+📢 **精选推送** · {{ items|length }}条 | 📈利好:{{ bull }} 📉利空:{{ bear }}
+
+{% for item in items %}
+{{ item.emoji }} **[{{ item.label }} {{ item.score }}]** {{ item.title|clean_title }}
+{% if item.url %}   🔗 {{ item.url }}{% endif %}
+{% if item.codes %}   📌 {{ item.codes }}{% endif %}
+{% if item.event_type %}   🏷️ {{ item.event_type }}{% if item.reason %} · {{ item.reason|clean_reason }}{% endif %}{% endif %}
+
+{% endfor %}
+*{{ now }}*

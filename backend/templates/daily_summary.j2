@@ -1,0 +1,45 @@
+{# 每日新闻摘要模板 #}
+## 📊 每日新闻摘要 ({{ date }})
+
+> 📰 新闻总数: **{{ total }}** 条 | 📌 关联股票: **{{ with_codes }}** 条 ({{ with_codes_pct }}%)
+
+### 情绪分布
+🟢 利好: **{{ positive }}** | 🔴 利空: **{{ negative }}** | ⚪ 中性: **{{ neutral }}**
+
+### 数据源
+{% for src, cnt in sources %}
+- {{ src }}: {{ cnt }} 条
+{% endfor %}
+
+{% if top_stocks %}
+### 🔥 热门关联股票
+{% for name, code, count in top_stocks %}
+- {{ name }}({{ code }}) - {{ count }} 条
+{% endfor %}
+{% endif %}
+
+{% if structured_groups %}
+### 📋 结构化事件（大宗交易/解禁/龙虎榜）
+{% for g in structured_groups %}
+{{ g.emoji }} **{{ g.name }}({{ g.code }})** {{ g.score }}
+{% for e in g.events %}
+- {{ e.title|clean_title }}{% if e.event_type %} 🏷️ {{ e.event_type }}{% endif %}{% if e.reason %} · {{ e.reason|clean_reason }}{% endif %}{% if e.url %}
+  🔗 {{ e.url }}{% endif %}
+
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+{% if news_groups %}
+### 📰 新闻事件
+{% for g in news_groups %}
+{{ g.emoji }} **{{ g.name }}({{ g.code }})** {{ g.score }}
+{% for e in g.events %}
+- {{ e.title }}{% if e.event_type %} 🏷️ {{ e.event_type }}{% endif %}{% if e.reason %} · {{ e.reason }}{% endif %}{% if e.url %}
+  🔗 {{ e.url }}{% endif %}
+
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+*{{ date }}*
