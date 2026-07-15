@@ -1,14 +1,32 @@
-# QFO量化回测平台
+<h1 align="center">QFO量化回测平台</h1>
 
-**QFO Quant Platform · A 股本地化量化回测与数据分析平台**
+<p align="center">
+  <strong>QFO Quant Platform · A 股本地化量化回测与数据分析平台</strong>
+</p>
 
-**教学网站：** [在线访问](https://qfo-website-yyy18337s-projects.vercel.app/)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/Python-3.12%2B-blue.svg" alt="Python 3.12+">
+  <img src="https://img.shields.io/badge/Node.js-18%2B-green.svg" alt="Node.js 18+">
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688.svg" alt="FastAPI">
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB.svg" alt="React">
+  <img src="https://img.shields.io/badge/SQLite-Local%20DB-003B57.svg" alt="SQLite">
+</p>
 
-License: MIT · Python 3.12+ · Node.js 18+ · FastAPI · React · SQLite
+<p align="center">
+  面向 A 股量化研究的本地化平台，覆盖数据同步、智能选股、因子研究、策略回测、组合优化、风险分析、可视化分析、新闻情绪和推送通知。
+</p>
 
-面向 A 股量化研究的本地化平台，覆盖数据同步、智能选股、因子研究、策略回测、组合优化、风险分析、可视化分析、新闻情绪和推送通知。
-
-[产品预览](#产品预览) · [功能特性](#功能特性) · [快速开始](#快速开始) · [技术栈与数据来源](#技术栈与数据来源) · [推送通知](#推送通知) · [贡献说明](CONTRIBUTING.md) · [MIT License](LICENSE)
+<p align="center">
+  <a href="#产品预览">产品预览</a> ·
+  <a href="#功能特性">功能特性</a> ·
+  <a href="#快速开始">快速开始</a> ·
+  <a href="#技术栈与数据来源">技术栈与数据来源</a> ·
+  <a href="#推送通知">推送通知</a> ·
+  <a href="https://qfo-website-yyy18337s-projects.vercel.app/">教学网站</a> ·
+  <a href="CONTRIBUTING.md">贡献说明</a> ·
+  <a href="LICENSE">MIT License</a>
+</p>
 
 ## 项目亮点
 
