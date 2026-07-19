@@ -105,7 +105,7 @@ run_first_time.bat
 
 ### 4. 填写 Tushare Token
 
-首次进入系统后，打开页面右上角设置，填写自己的 Tushare Token 并保存。
+首次进入系统后，打开页面右上角设置，填写自己的 [Tushare Token（获取链接）](https://tushare.pro/document/1?doc_id=39) 并保存。
 
 `backend/.env` 是本地配置文件，里面可能包含 Token 或 API Key，不会上传到 Git。
 
