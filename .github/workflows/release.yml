@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Read and validate version
         id: version
@@ -30,7 +32,24 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
 
-      - name: Create GitHub release
+      - name: Build release assets
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        shell: bash
+        run: |
+          if git rev-parse --verify "refs/tags/$TAG" >/dev/null 2>&1; then
+            source_ref="$TAG"
+          else
+            source_ref="$GITHUB_SHA"
+          fi
+          git archive \
+            --format=zip \
+            --prefix=QFO-Quant-Platform/ \
+            --output=QFO-Quant-Platform.zip \
+            "$source_ref"
+          sha256sum QFO-Quant-Platform.zip > SHA256SUMS.txt
+
+      - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
@@ -38,10 +57,15 @@ jobs:
         shell: bash
         run: |
           if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release $TAG already exists; no action needed."
+            gh release upload "$TAG" \
+              QFO-Quant-Platform.zip \
+              SHA256SUMS.txt \
+              --clobber
             exit 0
           fi
           gh release create "$TAG" \
             --target "$GITHUB_SHA" \
             --title "QFO量化回测平台 $VERSION" \
-            --generate-notes
+            --generate-notes \
+            QFO-Quant-Platform.zip \
+            SHA256SUMS.txt
